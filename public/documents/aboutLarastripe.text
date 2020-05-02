@@ -1,0 +1,38 @@
+- larastripe
+  [ https://www.youtube.com/watch?v=1dt-g5Au6ZI&list=PLeeuvNW2FHVixxKWVXqhjH1_5CPQ7nffP&index=5 ]
+  ubuntu ==> cd Code ==>  매우 중요...
+  composer create-project --prefer-dist laravel/laravel larastripe
+  cd larastripe  ==>  매우 중요...
+  composer require laravel/ui
+  php artisan ui vue --auth
+  yarn install --no-bin-links
+  yarn add bootstrap jquery popper.js vue vue-router --save
+  .env file ==> data base setup 수정
+  php artisan migrate
+  stripe install
+    composer require stripe/stripe-php
+    CheckController 와 해당 view file에 상세히 기록 되어 있음
+    stripe.com 참조 => login => hyukdong@hotmail.com => Wxxkhd711002*
+  Make Seed data
+    php artisan migrate
+    php artisan make:seeder ProductsTableSeeder
+    database/seeds/ProductsTableSeeder.php => file 수정
+    database/seeds/DatabaseSeeder.php => 수정
+    php artisan db:seed
+  Make Seed data ==> 다른 방법...
+    [ https://www.youtube.com/watch?v=yeAdOXYLG-8 ]
+    php artisan migrate
+    database/factories/ProducFactory.php 수정
+    database/seeds/ProductSeeder.php 수정
+    database/seeds/DatabaseSeeder.php 수정
+    php artisan db:seed
+  Shopping Cart
+    github.com/hardevine/LaravelShoppingcart
+    composer require hardevine/shoppingcart ==> 14/04/2020 현재 unable to install...
+    https://bootstrapious.com/p/bootstrap-shopping-cart => source copy
+    font-awesome master.blade.php에 추가
+      https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  products table 에 stock column 추가 하기
+    php artisan make:migration add_stockcolumn_to_products_table --table=products
+    database/migrations/add_stockcolumn_to_products_table.php file 수정
+    php artisan migrate
